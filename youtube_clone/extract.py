@@ -31,6 +31,7 @@ def extract_channel(channel_url: str, output_dir: str = "channel_data") -> None:
         "quiet": True,
         "extract_flat": True,
         "playlist_end": 500,  # cap at 500 videos
+        "nocheckcertificate": True,
     }
 
     with yt_dlp.YoutubeDL(ydl_opts_list) as ydl:
@@ -64,6 +65,7 @@ def extract_channel(channel_url: str, output_dir: str = "channel_data") -> None:
         "subtitlesformat": "json3",
         "outtmpl": str(output_path / "%(id)s.%(ext)s"),
         "ignoreerrors": True,
+        "nocheckcertificate": True,
     }
 
     videos_data = []
